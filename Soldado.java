@@ -23,23 +23,20 @@ public class Soldado extends Unidad{
 		System.out.println("b:"+b);
 	}
 	
-	private Integer ep;
-	
-	public Soldado() {
-		super();
-		this.setEp(0);
-	}
+	private Integer ep;	
 	
 	public Soldado(Integer x,Integer y) {
+		super(x,y);
 		this.setHp(200);
 		this.setP_atk(10);
-		this.setEp(20);
-		this.setX(x);
-		this.setY(y);
-		
+		this.setEp(20);		
 	}
 	
 	public void atack(Unidad b) {
+		if(this.dead()==true) {
+			System.out.println("La unidad esta muerta");
+			return;
+		}
 		if (this.distance(b)==1) {
 			if(this.getEp()!=0) {
 				b.setHp(b.getHp()-this.getP_atk());
@@ -48,12 +45,7 @@ public class Soldado extends Unidad{
 			else System.out.println("I need more energy");
 		}
 		else System.out.println("It out of Range");
-	}
-	
-	public Integer distance(Unidad b){
-		int x = (int) Math.sqrt(Math.pow((this.getX()-b.getX()),2)+Math.pow((this.getY()-b.getY()),2));
-		return x;
-	}
+	}	
 
 	public Integer getEp() {
 		return ep;
@@ -66,7 +58,5 @@ public class Soldado extends Unidad{
 	@Override
 	public String toString() {
 		return super.toString()+"Soldado [ep=" + ep + "]";
-	}
-	
-	
+	}	
 }
