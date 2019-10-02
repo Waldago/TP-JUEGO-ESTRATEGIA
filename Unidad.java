@@ -12,12 +12,6 @@ public abstract class Unidad {
 	private Integer x;
 	private Integer y;
 
-	public Unidad() {
-		this.setHp(0);
-		this.setP_atk(0);
-		this.setX(0);
-		this.setY(0);
-	}
 
 	public Unidad(Integer x,Integer y) {
 		this.setX(x);
@@ -45,6 +39,10 @@ public abstract class Unidad {
 	}
 
 	public void move(String msg) {
+		if(this.dead()==true) {
+			System.out.println("La unidad esta muerta");
+			return;
+		}
 		if(msg.matches("^[cC][SsEeNnOo]*[fF]$")){
 			for (int i=1;i<msg.length();i++) {
 				if (msg.charAt(i)=='n'||msg.charAt(i)=='N'){
@@ -63,6 +61,15 @@ public abstract class Unidad {
 		}
 	}
 
+	public Integer distance(Unidad b){
+		int x = (int) Math.sqrt(Math.pow((this.getX()-b.getX()),2)+Math.pow((this.getY()-b.getY()),2));
+		return x;
+	}
+
+	public boolean dead() {
+		if (this.getHp()<=0) return true;
+		return false;
+	}
 	public Integer getHp() {
 		return hp;
 	}
@@ -95,6 +102,8 @@ public abstract class Unidad {
 		this.y = y;
 	}
 
-
-
+	@Override
+	public String toString() {
+		return "Unidad [hp=" + hp + ", p_atk=" + p_atk + ", x=" + x + ", y=" + y + "]";
+	}
 }
