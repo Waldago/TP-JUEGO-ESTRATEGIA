@@ -19,10 +19,13 @@ public class Lancero extends Unidad{
 	}
 	
 	public void atack(Unidad b) {
+		if(this.dead()==true) {
+			System.out.println("La unidad esta muerta");
+			return;
+		}
 		if (this.distance(b)<=3 && this.distance(b)>=1) {
 			b.setHp(b.getHp()-this.getP_atk());
 		}
 		else System.out.println("It out of Range");
-	}
-	
+	}	
 }
