@@ -22,20 +22,19 @@ public class Arquero extends Unidad {
 
 	private Integer arrows;
 	
-	public Arquero() {
-		super();
-		this.setArrows(0);
-	}
 	
 	public Arquero(Integer x, Integer y) {
+		super(x,y);
 		this.setHp(50);
 		this.setP_atk(5);
 		this.setArrows(14);
-		this.setX(x);
-		this.setY(y);
 	}
 
 	public void atack(Unidad b) {
+		if(this.dead()==true) {
+			System.out.println("La unidad esta muerta");
+			return;
+		}
 		if (this.distance(b)<=5 && this.distance(b)>=2) {
 			if(this.getArrows()!=0) {
 				b.setHp(b.getHp()-this.getP_atk());
@@ -44,11 +43,6 @@ public class Arquero extends Unidad {
 			else System.out.println("I need more arrows");
 		}
 		else System.out.println("It out of Range");
-	}
-	
-	public Integer distance(Unidad b){
-		int x = (int) Math.sqrt(Math.pow((this.getX()-b.getX()),2)+Math.pow((this.getY()-b.getY()),2));
-		return x;
 	}
 	
 	public void paquete() {
@@ -72,4 +66,3 @@ public class Arquero extends Unidad {
 	}
 		
 }
-
