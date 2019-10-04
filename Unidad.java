@@ -40,7 +40,7 @@ public abstract class Unidad {
 
 	public void move(String msg) {
 		if(this.dead()==true) {
-			System.out.println("La unidad esta muerta");
+			System.out.println("The Unit is dead!");
 			return;
 		}
 		if(msg.matches("^[cC][SsEeNnOo]*[fF]$")){
