@@ -4,8 +4,8 @@ public class Soldado extends Unidad{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Unidad a = new Soldado(1,2);
-		Unidad b = new Soldado(1,3);
+		Soldado a = new Soldado(1,2);
+		Soldado b = new Soldado(1,3);
 		System.out.println("b:"+b);
 		System.out.println("a:"+a);
 		a.atack(b);
@@ -21,6 +21,8 @@ public class Soldado extends Unidad{
 		a.atack(b);
 		System.out.println("a:"+a);
 		System.out.println("b:"+b);
+		a.pocionA();
+		System.out.println("a:"+a);
 	}
 	
 	private Integer ep;	
@@ -29,12 +31,12 @@ public class Soldado extends Unidad{
 		super(x,y);
 		this.setHp(200);
 		this.setP_atk(10);
-		this.setEp(20);		
+		this.setEp(100);		
 	}
 	
 	public void atack(Unidad b) {
 		if(this.dead()==true) {
-			System.out.println("La unidad esta muerta");
+			System.out.println("The Unit is dead!");
 			return;
 		}
 		if (this.distance(b)==1) {
@@ -46,6 +48,10 @@ public class Soldado extends Unidad{
 		}
 		else System.out.println("It out of Range");
 	}	
+	
+	public void pocionA(){
+		this.setEp(this.getEp()+10);
+	}
 
 	public Integer getEp() {
 		return ep;
