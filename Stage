@@ -1,0 +1,25 @@
+package ar.edu.uno.trabajo.practico;
+
+public class Stage {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Soldado s1 = new Soldado (3,1);
+		Arquero a1 = new Arquero (2,6);
+		Caballero c1 = new Caballero (4,8);
+		Lancero l1 = new Lancero (1,5);
+		l1.atack(a1);
+		System.out.println(a1 +"\r\n"+ l1);
+		c1.atack(s1);
+		System.out.println(c1 +"\r\n"+ s1);
+		s1.move("cennnnf");
+		c1.atack(s1);
+		System.out.println(c1 +"\r\n"+ s1);
+		c1.atack(s1);
+		c1.atack(s1);
+		c1.pocionA();
+		c1.atack(s1);
+		s1.move("cnnf");
+		s1.atack(l1);
+	}
+}
