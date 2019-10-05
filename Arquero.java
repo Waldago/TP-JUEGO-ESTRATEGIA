@@ -25,14 +25,14 @@ public class Arquero extends Unidad {
 	
 	public Arquero(Integer x, Integer y) {
 		super(x,y);
-		this.setHp(50);
+		this.setHp(050);
 		this.setP_atk(5);
-		this.setArrows(14);
+		this.setArrows(20);
 	}
 
 	public void atack(Unidad b) {
 		if(this.dead()==true) {
-			System.out.println("La unidad esta muerta");
+			System.out.println("The Unity is dead!");
 			return;
 		}
 		if (this.distance(b)<=5 && this.distance(b)>=2) {
